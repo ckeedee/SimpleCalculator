@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>calculator</title>
+    <style>
+        input{
+            width: 59px;
+            height: 40px;
+            border-radius: 20%;
+            border: none;
+            cursor: pointer;
+        }
+        .container{
+            width: 250px;
+            position: relative;
+            margin: 30px auto;
+            border: 2px solid #3d4543;
+            border-radius: 7%;
+            background-color: #3d4543;
+
+        }
+        .text-screen{
+            width: 235px;
+            margin-left: 4px;
+            margin-right: 4px;
+            margin-top: 4px;
+            margin-bottom: 0;
+            height: 50px;
+            background-color:#bccd95;
+            color: black; 
+            text-align: right;
+        }
+        .key{
+            color:white;
+             background-color:#767f82;
+             border-bottom:black 2px solid;
+             border-top:2px #6f6f6f solid;
+        }
+         
+        
+           .num{
+            color:white;
+            background-color:#272c2e;
+            border-bottom:black 2px solid;
+            border-top:2px #303030 solid;
+           }
+           .operator{
+            color:black;
+            background-color:#ff4561;
+            border-bottom:black 2px solid;
+           }
+           .equal{
+            color:black;
+            background-color:#FF9933;
+            border-bottom:black 2px solid;
+            border-top:2px #FF9933 solid;
+           }
+           h2{
+               text-align: center;
+               margin-bottom: 0;
+           }
+    </style>
+<script type="text/javascript" >
+let num = (a)=>{
+    myform.display.value +=a
+}
+let Fac = ()=> {
+    myform.display.value = "";
+}
+let Fsin =()=> {
+    myform.display.value = Math.sin(myform.display.value)+ ' '+"rad";
+}
+let Fcos =()=> {
+    myform.display.value = Math.cos(myform.display.value)+ ' '+"rad";
+}
+let Ftan =()=> {
+    myform.display.value = Math.tan(myform.display.value)+ ' '+ "rad";
+}
+let FLog =()=> {
+    myform.display.value = Math.log10(myform.display.value);
+}
+let Fsq =()=> {
+    myform.display.value = Math.pow(myform.display.value,2);
+}
+let Fsqrt =()=> {
+    myform.display.value = Math.pow(myform.display.value,(1/2));
+}
+let Equalto =()=>{
+    myform.display.value = eval(myform.display.value);
+}
+let Fdelete =()=> {
+    let prevalue = myform.display.value;
+    myform.display.value = prevalue.substr(0,prevalue.length - 1);
+}
+</script>
+</head>
+<body>
+    <h2> Simple Scientific calculator</h2>
+    <div class="container">
+    <form name="myform">
+        <div class="screen">
+            <input  name="display" type="text" placeholder="0" readonly  class="text-screen">
+        </div>
+        <div class="buttons">
+            <p>
+                <input type="button" name="btnSin" class="key" value="Sin" onclick="Fsin()">
+                <input type="button" name="btnCos" class="key" value="Cosine" onclick="Fcos()">
+                <input type="button" name="btnTan" class="key" value="Tan" onclick="Ftan()"> 
+                <input type="button" name="btnLog" class="key" value="Log" onclick="FLog()">     
+            </p>
+            <p>
+                <input type="button" name="btnSq"class="key" value="Square" onclick="Fsq()">
+                <input type="button" name="btnSqrt" class="key" value="Sqroot" onclick="Fsqrt()">
+                <input type="button" name="btn1AC"class="key" value="Cls" onclick="Fac()"> 
+                <input type="button" name="btnDel" class="key" value="Delete" onclick="Fdelete()">     
+            </p>
+               
+            <p>
+                <input type="button" name="btn9" class="num" value="9" onclick="num('9')">
+                <input type="button" name="btn8"class="num" value="8" onclick="num('8')">
+                <input type="button" name="btn7" class="num" value="7" onclick="num('7')"> 
+                <input type="button" name="btn6" class="num" value="6" onclick="num('6')">  
+            </p>
+            <p>
+                <input type="button" name="btn5" class="num" value="5" onclick="num('5')">
+                <input type="button" name="btn4"class="num" value="4" onclick="num('4')">
+                <input type="button" name="btn3" class="num" value="3" onclick="num('3')"> 
+                <input type="button" name="btn2" class="num" value="2" onclick="num('2')">     
+            </p> 
+            <p>
+                    <input type="button" name="btn1" class="num" value="1" onclick="num('1')">
+                    <input type="button" name="btn0" class="num" value="0" onclick="num('0')">
+                    <input type="button" name="btn+" class="num" value="." onclick="num('.')"> 
+                    <input type="button" name="btn+" class="operator" value="+" onclick="num('+')"> 
+            </p>
+            <p>
+                    <input type="button" name="btn-" class="operator" value="-" onclick="num('-')">
+                    <input type="button" name="btn*" class="operator" value="*" onclick="num('*')">
+                    <input type="button" name="btn/" class="operator" value="/" onclick="num('/')"> 
+                    <input type="button" name="btn%" class="operator" value="%" onclick="num('%')"> 
+            </p>
+            <p><input type="button" name="btnEqto" class="equal" value="=" onclick="Equalto()"></p>
+        </div>
+
+    </form>
+</div>
+</body>
+</html>
